@@ -7,19 +7,30 @@
     <title>Document</title>
 </head>
 
-<form>
 
-    <in name="productos" action="" method="POST">
+<table>
+    <tr>
+        <td> nombre: <input type="text" id="nombre" name="nombre">
+            <br>
+            cantidad: <input type="number" id="cantidad" name="cantidad">
+            <br>
+            precio: <input type="number" id="precio" name="precio">
 
-        nombre: <input type="text" id="nombre" name="nombre">
-        <br>
-        cantidad: <input type="number" id="cantidad" name="cantidad">
-        <br>
-        precio: <input type="number" id="precio" name="precio">
+            <button type="button" name="add" onclick="Agregar()">añadir</button>
+            <button type="button" name="close" onclick="Cerrar()">cerrar</button>
+        </td>
+        <td>.......................</td>
+        <td>
+            <p>Subtotal:<span id="subtotalh"></span></p>
+            <p>Iva:<span id="ivah"></span></p>
+            <p>Total:<span id="totalh"></span></p>
+        </td>
+    </tr>
+</table>
 
-        <button type="submit" name="add" onclick="Agregar()">añadir</button>
-        <button type="submit" name="close">cerrar</button>
-</form>
+
+
+
 <script src="back.js"></script>
 </body>
 

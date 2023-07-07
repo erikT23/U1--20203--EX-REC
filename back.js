@@ -4,10 +4,9 @@ var carrito = {
   subTotal: 0,
   total: 0,
   calcularTotal: function (subtotal) {
-    return (carrito.total = subtotal * 0.16);
+    this.total = subtotal * 1.16;
   },
 };
-
 var productos = {
   nombre: [],
   cantidad: [],
@@ -20,23 +19,30 @@ var productos = {
     return sum;
   },
 };
-
 var productsName = productos.nombre;
 var productsQnt = productos.cantidad;
 var productsCost = productos.precio;
+var sum = 0;
 
 function Agregar() {
   let nameValue = document.getElementById("nombre").value;
-  console.log(nameValue);
   let qntValue = document.getElementById("cantidad").value;
   let cost = document.getElementById("precio").value;
-
   productsName.push(nameValue);
-
   productsQnt.push(qntValue);
   productsCost.push(cost);
+  sum = productos.calcularSubtotal();
+}
 
-  let sum = productos.calcularSubtotal();
-  console.log(sum);
-  console.log(JSON.stringify(productos));
+function Cerrar() {
+  var carritoProduct = productos;
+  var carritoSubtotal = sum;
+  var carritoFolio = (Math.random() + 1).toString(36).substring(7);
+  carrito.productos = carritoProduct;
+  carrito.subTotal = carritoSubtotal;
+  carrito.folio = carritoFolio;
+  carrito.calcularTotal(carritoSubtotal);
+  document.getElementById("subtotalh").textContent = carrito.subTotal;
+  document.getElementById("ivah").textContent = (carrito.total - carrito.subTotal).toFixed(2);
+  document.getElementById("totalh").textContent = carrito.total;
 }
